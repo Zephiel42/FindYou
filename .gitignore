@@ -1,0 +1,6 @@
+.env
+certificats/
+node_modules/
+front/dist/
+back/main
+*.local
