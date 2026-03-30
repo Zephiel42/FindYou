@@ -1,22 +1,15 @@
-import { Routes, Route } from "react-router-dom";
-
-function Home() {
-    return (
-        <main>
-            <h1>FindYou</h1>
-        </main>
-    );
-}
-
-function NotFound() {
-    return <h1>404 — Page not found</h1>;
-}
+import { Routes, Route } from 'react-router-dom';
+import MainUI from './MainUI';
+import TrackPage from './pages/TrackPage';
 
 export default function App() {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/track/:slug"  element={<TrackPage />} />
+      <Route path="/visit/:slug"  element={<TrackPage />} />
+      <Route path="/ping/:slug"   element={<TrackPage />} />
+      <Route path="/join/:slug"   element={<TrackPage />} />
+      <Route path="*"             element={<MainUI />} />
+    </Routes>
+  );
 }

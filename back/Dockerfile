@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apk add --no-cache curl
 
-COPY go.mod ./
+COPY go.mod go.sum ./
 RUN go mod download
 
 COPY *.go ./
@@ -18,7 +18,7 @@ RUN apk add --no-cache curl ca-certificates
 
 COPY --from=builder /app/main .
 
-RUN adduser -D -r appuser && chown -R appuser /app
+RUN adduser -S -D appuser && chown -R appuser /app
 USER appuser
 
 EXPOSE 5002
